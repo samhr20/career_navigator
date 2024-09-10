@@ -5,7 +5,7 @@ import CareerMistakes from './components/CareerMistakes'
 
 const Page = () => {
   return (
-    <div className='pt-32'>
+    <div className='pt-32 bg-gray-100'>
       <div className='p-4 px-4 md:px-14'>
         <Image
           src={'/beforeAfterCounselling.webp'}

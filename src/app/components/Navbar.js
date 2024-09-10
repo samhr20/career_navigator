@@ -28,12 +28,12 @@ const Navbar = () => {
                 </Link>
             </li>
             <li>
-                <Link href={'/careerassessment'}>
+                <Link href={'/assessment'}>
                     <p className='transition-colors duration-300 hover:text-customOrange hover:underline'>Assessment</p>
                 </Link>
             </li>
             <li>
-                <Link href={'/careerinformation'}>
+                <Link href={'/information'}>
                     <p className='transition-colors duration-300 hover:text-customOrange hover:underline'>Information</p>
                 </Link>
             </li>

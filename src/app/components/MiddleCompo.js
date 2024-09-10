@@ -21,7 +21,7 @@ const MiddleCompo = () => {
                 <p className='text-lg mb-4'>
                     Explore detailed information on various career paths, including job descriptions, required skills, and industry trends. Our comprehensive resources will help you understand what different careers entail and what qualifications are needed. Discover valuable insights and make informed decisions about your future career.
                 </p>
-                <Link href={'/assesment'}>
+                <Link href={'/information'}>
                 <button className='bg-customOrange text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors'>
                     Learn More
                 </button>

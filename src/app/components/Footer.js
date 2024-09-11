@@ -34,7 +34,7 @@ const Footer = () => {
                     <div className='w-full md:w-1/3'>
                         <h4 className='text-lg font-semibold mb-4'>Contact Us</h4>
                         <p className='text-sm mb-2'>Email: <a href='mailto:shubhamsaini8965@gmail.com' className='hover:text-customOrange transition duration-300'>shubhamsaini8965@gmail.com</a></p>
-                        <p className='text-sm'>Phone: +91 8278568770</p>
+                        <p className='text-sm'>Phone: +91 8278568770 , 9306634949</p>
                     </div>
                 </div>
 

@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import { useState } from "react";
 
 export default function Assessment() {
-  // Define questions and options
+
   const professionQuestions = [
     {
       question: "Which subject do you enjoy studying the most?",
@@ -58,141 +58,159 @@ export default function Assessment() {
         { text: "Creating visual designs", interest: "Arts" },
       ],
     },
+    {
+      question: "What motivates you the most?",
+      options: [
+        { text: "Innovative technology", interest: "Development" },
+        { text: "Making a difference in people's lives", interest: "Healthcare" },
+        { text: "Achieving business success", interest: "Business" },
+        { text: "Expressing creativity", interest: "Arts" },
+      ],
+    },
+    {
+      question: "Which of these do you enjoy reading about the most?",
+      options: [
+        { text: "Tech advancements and coding", interest: "Development" },
+        { text: "Medical discoveries and health tips", interest: "Healthcare" },
+        { text: "Business trends and economic news", interest: "Business" },
+        { text: "Art exhibitions and design trends", interest: "Arts" },
+      ],
+    },
   ];
-  
-  
 
-  // Define specific interests and related careers
   const careerInterests = {
     Development: [
-      "Software Developer", "Web Developer", "UX/UI Designer",
-      "Data Scientist", "App Developer", "AI Engineer",
-      "Game Developer", "Blockchain Developer", "Cloud Engineer",
-      "Cybersecurity Specialist"
+      "Software Developer", "Web Developer", "UX/UI Designer", "Data Scientist",
+      "App Developer", "AI Engineer", "Game Developer", "Blockchain Developer",
+      "Cloud Engineer", "Cybersecurity Specialist"
     ],
     Healthcare: [
-      "Doctor", "Nurse", "Pharmacist", "Physical Therapist",
-      "Medical Laboratory Technician", "Healthcare Administrator",
-      "Dentist", "Veterinarian", "Occupational Therapist",
+      "Doctor", "Nurse", "Pharmacist", "Physical Therapist", "Medical Laboratory Technician",
+      "Healthcare Administrator", "Dentist", "Veterinarian", "Occupational Therapist",
       "Radiologic Technologist"
     ],
     Business: [
-      "Financial Analyst", "Marketing Manager", "Business Consultant",
-      "Accountant", "Sales Manager", "Human Resources Manager",
-      "Entrepreneur", "Management Consultant", "Supply Chain Manager",
-      "Investment Banker"
+      "Financial Analyst", "Marketing Manager", "Business Consultant", "Accountant",
+      "Sales Manager", "Human Resources Manager", "Entrepreneur", "Management Consultant",
+      "Supply Chain Manager", "Investment Banker"
     ],
     Arts: [
-      "Graphic Designer", "Fashion Designer", "Illustrator", "Animator",
-      "Art Director", "Interior Designer", "Photographer", "Video Editor",
-      "3D Modeler", "Multimedia Artist"
+      "Graphic Designer", "Fashion Designer", "Illustrator", "Animator", "Art Director",
+      "Interior Designer", "Photographer", "Video Editor", "3D Modeler", "Multimedia Artist"
     ],
     Engineering: [
-      "Civil Engineer", "Mechanical Engineer", "Electrical Engineer",
-      "Chemical Engineer", "Aerospace Engineer", "Robotics Engineer",
-      "Environmental Engineer", "Structural Engineer", "Industrial Engineer",
-      "Biomedical Engineer"
+      "Civil Engineer", "Mechanical Engineer", "Electrical Engineer", "Chemical Engineer",
+      "Aerospace Engineer", "Robotics Engineer", "Environmental Engineer", "Structural Engineer",
+      "Industrial Engineer", "Biomedical Engineer"
     ],
     Education: [
-      "Teacher", "School Counselor", "Education Administrator",
-      "Professor", "Curriculum Developer", "Instructional Designer",
-      "Educational Consultant", "Special Education Teacher",
-      "Career Counselor", "Academic Advisor"
+      "Teacher", "School Counselor", "Education Administrator", "Professor", "Curriculum Developer",
+      "Instructional Designer", "Educational Consultant", "Special Education Teacher", "Career Counselor",
+      "Academic Advisor"
     ],
     Marketing: [
-      "Digital Marketer", "SEO Specialist", "Content Marketer",
-      "Brand Manager", "Social Media Manager", "Public Relations Specialist",
-      "Marketing Analyst", "Market Research Analyst",
-      "Email Marketing Specialist", "Product Marketing Manager"
+      "Digital Marketer", "SEO Specialist", "Content Marketer", "Brand Manager", "Social Media Manager",
+      "Public Relations Specialist", "Marketing Analyst", "Market Research Analyst", "Email Marketing Specialist",
+      "Product Marketing Manager"
     ],
     Technology: [
-      "IT Specialist", "Systems Analyst", "Network Engineer",
-      "Database Administrator", "DevOps Engineer", "Site Reliability Engineer",
-      "Technical Support Specialist", "Systems Integrator",
-      "ERP Consultant", "Software Tester"
+      "IT Specialist", "Systems Analyst", "Network Engineer", "Database Administrator", "DevOps Engineer",
+      "Site Reliability Engineer", "Technical Support Specialist", "Systems Integrator", "ERP Consultant",
+      "Software Tester"
     ],
     Finance: [
-      "Accountant", "Financial Planner", "Investment Advisor",
-      "Risk Analyst", "Tax Consultant", "Credit Analyst",
-      "Treasury Analyst", "Financial Auditor", "Portfolio Manager",
-      "Compliance Officer"
+      "Accountant", "Financial Planner", "Investment Advisor", "Risk Analyst", "Tax Consultant",
+      "Credit Analyst", "Treasury Analyst", "Financial Auditor", "Portfolio Manager", "Compliance Officer"
     ],
     Media: [
-      "Journalist", "Editor", "Public Relations Specialist",
-      "Broadcast Producer", "Content Creator", "Media Planner",
-      "Social Media Influencer", "Radio Host", "TV Producer",
-      "Film Director"
+      "Journalist", "Editor", "Public Relations Specialist", "Broadcast Producer", "Content Creator",
+      "Media Planner", "Social Media Influencer", "Radio Host", "TV Producer", "Film Director"
     ],
   };
-
 
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [quizFinished, setQuizFinished] = useState(false);
 
-  // Handle option change
   const handleAnswerChange = (option, questionIndex) => {
     const updatedAnswers = [...selectedAnswers];
     updatedAnswers[questionIndex] = option;
     setSelectedAnswers(updatedAnswers);
   };
 
-  // Handle form submission
   const handleSubmit = () => {
-    setQuizFinished(true);
+    if (selectedAnswers.length === professionQuestions.length) {
+      setQuizFinished(true);
+    } else {
+      alert("Please Answer all questions!!!");
+    }
   };
 
-  // Get career suggestions based on user interests
   const getCareerSuggestions = () => {
     const interestCounts = {};
     selectedAnswers.forEach((answer) => {
       if (answer) {
-        interestCounts[answer.interest] = (interestCounts[answer.interest] || 0) + 1;
+        interestCounts[answer.interest] =
+          (interestCounts[answer.interest] || 0) + 1;
       }
     });
 
-    // Find the interest with the highest count
-    const maxInterest = Object.keys(interestCounts).reduce((a, b) => interestCounts[a] > interestCounts[b] ? a : b, "");
+    const maxInterest = Object.keys(interestCounts).reduce(
+      (a, b) => (interestCounts[a] > interestCounts[b] ? a : b),
+      ""
+    );
 
     return careerInterests[maxInterest] || [];
   };
 
   return (
-    <div className="min-h-screen pt-32 flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen pt-32 px-5 pb-7 flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-2xl w-full">
         {!quizFinished ? (
-          <form className="space-y-6">
-            {professionQuestions.map((question, index) => (
-              <div key={index} className="border-b pb-4">
-                <h2 className="text-lg font-medium text-gray-700 mb-2">{question.question}</h2>
-                {question.options.map((option, optionIndex) => (
-                  <label
-                    key={optionIndex}
-                    className="flex items-center mb-3 cursor-pointer hover:bg-gray-50 rounded-lg px-4 py-2"
-                  >
-                    <input
-                      type="radio"
-                      name={`question-${index}`}
-                      value={option.text}
-                      className="form-radio text-blue-500 h-4 w-4"
-                      onChange={() => handleAnswerChange(option, index)}
-                      checked={selectedAnswers[index]?.text === option.text}
-                    />
-                    <span className="ml-3 text-gray-600">{option.text}</span>
-                  </label>
-                ))}
-              </div>
-            ))}
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className="w-full py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700"
-            >
-              Submit
-            </button>
-          </form>
+          <>
+            <h1 className="text-4xl font-bold mb-8 text-gray-800 text-center">
+              Career Assessment
+            </h1>
+            <p className="text-lg text-gray-700 mb-8">
+              Answer the following questions to receive career suggestions tailored to your interests and preferences.
+            </p>
+            <form className="space-y-6">
+              {professionQuestions.map((question, index) => (
+                <div key={index} className="border-b pb-4">
+                  <h2 className="text-lg font-medium text-gray-700 mb-2">
+                    {index + 1}. {question.question}
+                  </h2>
+                  {question.options.map((option, optionIndex) => (
+                    <label
+                      key={optionIndex}
+                      className="flex items-center mb-3 cursor-pointer hover:bg-gray-50 rounded-lg px-4 py-2"
+                    >
+                      <input
+                        type="radio"
+                        name={`question-${index}`}
+                        value={option.text}
+                        className="form-radio text-blue-500 h-4 w-4"
+                        onChange={() => handleAnswerChange(option, index)}
+                        checked={selectedAnswers[index]?.text === option.text}
+                      />
+                      <span className="ml-3 text-gray-600">{option.text}</span>
+                    </label>
+                  ))}
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="w-full py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700"
+              >
+                Submit
+              </button>
+            </form>
+          </>
         ) : (
           <div>
-            <h2 className="text-xl font-bold text-green-600 mb-4">Your Career Suggestions:</h2>
+            <h2 className="text-xl font-bold text-green-600 mb-4">
+              Your Career Suggestions:
+            </h2>
             <ul className="list-disc list-inside text-lg text-gray-800 space-y-2">
               {getCareerSuggestions().map((career, index) => (
                 <li key={index}>{career}</li>

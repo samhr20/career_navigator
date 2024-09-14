@@ -9,7 +9,7 @@ const MiddleCompo = () => {
                 <p className='text-lg mb-4'>
                     Our Career Assessment tool helps you identify your strengths, interests, and potential career paths. It provides personalized recommendations based on your responses to various questions and scenarios. Engage with our tool to gain insights into suitable career options and start your journey towards a fulfilling career.
                 </p>
-                <Link href={'/assesment'}>
+                <Link href={'/assessment'}>
                 <button className='bg-customOrange text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors'>
                     Take the Assessment
                 </button>

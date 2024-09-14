@@ -55,9 +55,9 @@ const Page = () => {
     if (status) {
       const timer = setTimeout(() => {
         setStatus(null);
-      }, 15000); // 15 seconds
+      }, 10000); 
 
-      return () => clearTimeout(timer); // Cleanup timer on component unmount
+      return () => clearTimeout(timer); 
     }
   }, [status]);
 

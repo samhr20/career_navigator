@@ -3,7 +3,7 @@ import React from 'react'
 const CareerMistakes = () => {
     return (
         <div className='p-4 md:p-10'>
-            <section className='bg-gray-100 shadow-lg rounded-lg p-6 border border-gray-300'>
+            <section className=' bg-white shadow-lg rounded-lg p-6 border border-gray-300'>
                 <h2 className='text-2xl md:text-3xl font-bold mb-4 text-black'>Career Mistakes to Avoid</h2>
                 <ul className='list-disc list-inside text-lg mb-4 text-black'>
                     <li className='mb-2'>
